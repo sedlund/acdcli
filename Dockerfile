@@ -1,6 +1,6 @@
 FROM alpine:3.3
 
-MAINTAINER sredlund@github
+MAINTAINER sedlund@github @sredlund
 
 RUN apk update \
     && apk upgrade \
