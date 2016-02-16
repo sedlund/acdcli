@@ -32,9 +32,3 @@ Alpine Linux base with [acd_cli](https://github.com/yadayada/acd_cli) and fuse i
 ----
     docker run -itd --privileged --name acdmount -v /acd -v /home/ubuntu/.cache/acd_cli:/root/.cache/acd_cli sedlund/acdcli:1.0 sh -c "acdcli -v mount /acd; sh"
 
-### Creating another container that has access to the acd mount
-
-* `-w acd` sets our working directory to be /acd which is where our data is mounted from acdmount container                  
-
-----              
-    docker run -it --rm -w /acd --volumes-from acdmount busybox ls
