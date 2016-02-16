@@ -1,3 +1,5 @@
+[![](https://badge.imagelayers.io/sedlund/acdcli:latest.svg)](https://imagelayers.io/?images=sedlund/acdcli:latest 'Get your own badge on imagelayers.io')
+
 # sedlund/acdcli
 
 Alpine Linux base with [acd_cli](https://github.com/yadayada/acd_cli) and fuse installed
