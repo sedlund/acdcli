@@ -16,7 +16,7 @@ Alpine Linux base with [acd_cli](https://github.com/yadayada/acd_cli) and fuse i
 ### Create a data volume that will contain your oauth, and other acd_cli files
     docker run -d --name acdcli-data -v /root/.cache/acd_cli tianon/true
 
-### Generate a oauth token in that container
+### Generate an oauth token in that container
 
 * This will start an elinks terminal for you to authorize the connection and create your token
 
