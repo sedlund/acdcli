@@ -6,13 +6,15 @@ Alpine Linux base with [acd_cli](https://github.com/yadayada/acd_cli) and fuse i
 
 ### Pass your docker hosts local directory where your acd_cli oauth files are and run a listing
 * `--entrypoint` tells docker what to command run.  the normal command arguments are passed to it.  This is a good line to wrap in a script
+
     docker run -it --rm -v /home/ubuntu/.cache/acd_cli:/root/.cache/acd_cli --entrypoint=/usr/bin/acdcli sedlund/acdcli:1.0 ls
 
 ### Create a data volume that will contain your oauth, and other acd_cli files
-    docker run -itd --name acdcli-data -v /root/.cache/acd_cli tianon/true
+    docker run -d --name acdcli-data -v /root/.cache/acd_cli tianon/true
 
 ### Generate a oauth token in that container
-* This will start a elinks terminal for you to authorize the connection and create your token
+* This will start an elinks terminal for you to authorize the connection and create your token
+
     docker run -it --rm --volumes-from acdcli-data sedlund/acdcli acd_cli init
 
 ### Copy existing token inside the data container
