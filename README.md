@@ -26,9 +26,10 @@ Alpine Linux base with [acd_cli](https://github.com/yadayada/acd_cli) and fuse i
 
 ### Mounting via fuse inside the container
 * `--privileged` is required to use the docker hosts /dev/fuse for mounting
+* `sh -c "acdcli -v mount; sh"` shows how to run a command that would fork (causing the container to exit), and running sh to keep it running
 
 **NOTE** you cannot export a fuse mount as a volume from the container.  Check out `sedlund/acdcli-webdav` (based on this image) to mount ACD and provide a secure webdav share.  You could do other things like setup a sftp server in this container, but that is left as an excersize to the user.
 
 ----
-    docker run -itd --privileged --name acdmount -v /acd -v /home/ubuntu/.cache/acd_cli:/root/.cache/acd_cli sedlund/acdcli:1.0 sh -c "acdcli -v mount /acd; sh"
+    docker run -itd --privileged --name acdmount --volumes-from acdcli-data  sedlund/acdcli sh -c "acdcli -v mount /acd; sh"
 
