@@ -17,6 +17,6 @@ ENV LIBFUSE_PATH=/usr/lib/libfuse.so.2
 
 USER user
 
-ENTRYPOINT /usr/bin/acdcli
+ENTRYPOINT ["/usr/bin/acdcli"]
 
-CMD ['-h']
+CMD ["-h"]
