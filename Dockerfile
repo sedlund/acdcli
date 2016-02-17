@@ -10,10 +10,13 @@ RUN apk update \
     && rm -rf /root/.cache \
     && apk del wget ca-certificates \
     && rm /var/cache/apk/* \
-    && export uid=1000 gid=1000 \
-    && groupadd --gid ${gid} user \
-    && useradd --uid ${uid} --gid ${gid} --create-home user
+    && addgroup user \
+    && adduser -G user -D user
 
 ENV LIBFUSE_PATH=/usr/lib/libfuse.so.2
 
 USER user
+
+ENTRYPOINT /usr/bin/acdcli
+
+CMD ['-h']
