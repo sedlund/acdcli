@@ -4,8 +4,7 @@ MAINTAINER sedlund@github @sredlund
 
 RUN apk update \
     && apk upgrade \
-    && apk add python3 fuse elinks wget ca-certificates \
-    && wget -O- https://bootstrap.pypa.io/get-pip.py | python3 \
+    && apk add python3 fuse elinks ca-certificates \
     && pip3 install acdcli \
     && rm -rf /root/.cache \
     && apk del wget ca-certificates \
