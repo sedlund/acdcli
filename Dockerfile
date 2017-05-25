@@ -2,8 +2,9 @@ FROM alpine:3.5
 
 MAINTAINER sedlund@github @sredlund
 
-RUN apk add --no-cache python3 fuse elinks ca-certificates \
-    && pip3 install acdcli \
+RUN apk add --no-cache git python3 fuse elinks ca-certificates \
+    && pip3 install git+https://github.com/yadayada/acd_cli.git \
+    && apk del git \
     && addgroup user \
     && adduser -G user -D user
 

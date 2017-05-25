@@ -2,6 +2,10 @@
 
 Alpine Linux base with [acd_cli](https://github.com/yadayada/acd_cli) and fuse installed
 
+## Update
+
+Temporarily use the git repo with the latest API to fix the auth issues
+
 ## Usage Opportunities:
 
 ### Pass your docker hosts local directory where your acd_cli oauth files are and run a listing
