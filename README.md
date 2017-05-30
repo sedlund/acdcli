@@ -34,8 +34,10 @@ This will start elinks for you to authorize the connection and create your token
 
 ### Mounting via fuse inside the container
 
-    docker run -itd --privileged --name acdmount -v acdcli_data:/home/user --entrypoint=/bin/sh sedlund/acdcli -c "acdcli -v mount /acd; sh"
-    docker run -itd --cap-add SYS_ADMIN --device /dev/fuse --name acdmount -v acdcli_data:/home/user --entrypoint=/bin/sh sedlund/acdcli -c "acdcli -v mount /acd; sh"
+#### Option 1
+    docker run -itd --privileged --name acdmount -v acdcli_data:/home/user --entrypoint=/bin/sh sedlund/acdcli -c "acdcli -v mount /mnt; sh"
+#### Option 2
+    docker run -itd --cap-add SYS_ADMIN --device /dev/fuse --name acdmount -v acdcli_data:/home/user --entrypoint=/bin/sh sedlund/acdcli -c "acdcli -v mount /mnt; sh"
 ----
 
 * `--privileged` you can use the example with privileged which gives the container extra permission or you can use the second example which uses a cap-add and passes a device (more secure).
