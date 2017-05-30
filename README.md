@@ -2,6 +2,10 @@
 
 Alpine Linux base with [acd_cli](https://github.com/yadayada/acd_cli) and fuse installed
 
+# Changelog
+
+Update to support acd_cli api 0.9.3
+
 ## Update
 
 Temporarily use the git repo with the latest API to fix the auth issues
