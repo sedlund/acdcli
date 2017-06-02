@@ -4,20 +4,13 @@ Alpine Linux base with [acd_cli](https://github.com/yadayada/acd_cli) and fuse i
 
 # Changelog
 
-Update to support acd_cli api 0.9.3
-
-## Update
-
-Temporarily use the git repo with the latest API to fix the auth issues
+5/28/2017 Update to support acd_cli api 0.9.3 and use the git repo with the latest API to fix the auth issues
 
 ## Usage Opportunities:
 
 ### Pass your docker hosts local directory where your acd_cli oauth files are and run a listing
 
     docker run -it --rm -v /home/ubuntu/.cache/acd_cli:/home/user/.cache/acd_cli sedlund/acdcli ls
-----
-
-* This is a good line to wrap in a script.
 
 ### Create a data volume and set permissions of the home directory
 
@@ -27,9 +20,9 @@ Temporarily use the git repo with the latest API to fix the auth issues
 
     docker run -it --rm -v acdcli_data:/home/user sedlund/acdcli init
 
-This will start elinks for you to authorize the connection and create your token.  Save the file in ~/.cache/acd_cli/oauth_data
+This will start eLinks browser for you to authorize the connection and create your token.  Save the file in ~/.cache/acd_cli/oauth_data
 
-    docker run -it --rm --volumes-from acdcli-data sedlund/acdcli sync
+    docker run -it --rm -v acdcli_data:/home/user sedlund/acdcli sync
     
 ### Copy existing token inside the data container and set permissions
 
